@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<div class="span2">
+<%= simple_form_for :testscript,:url =>url_for(:action=>'get_pdf',:controller=>'testscripts'),html: {method:'post',class: 'form-horizontal'} do |f| %>
+	<%= f.button :submit, "Save as PDF" %>
+<%end%>
+</div>
+
+<table class="table table-stripped table-hover" >
+ <thead>
+  <tr>
+    <th>Audience</th>
+    <th>Goal</th>
+    <th>Approach</th>
+    <th>Script body</th>
+   </tr>
+ </thead>
+ 
+ <tbody>
+<% @testscripts.each do |testscript| %>
+  <tr>
+    <td><%= testscript.audience %></td>
+    <td><%= testscript.goal %></td>
+    <td><%= testscript.approach %></td>
+    <td><%= testscript.script_body %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</body>
+</html>
